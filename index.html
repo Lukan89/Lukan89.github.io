@@ -1,23 +1,273 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frieren Landing Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="clouds-container">
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-        <div class="cloud cloud4"></div>
-        <div class="cloud cloud5"></div>
-    </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87CEEB 0%, #B0D4F1 40%, #E0F6FF 60%, #FFE5B4 100%);
+    height: 100vh;
+    position: relative;
+}
+
+.clouds-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 100px;
+    opacity: 0.9;
+    filter: blur(1.5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 100px;
+}
+
+/* Cloud 1 - Large fluffy cloud */
+.cloud1 {
+    width: 200px;
+    height: 60px;
+    top: 15%;
+    left: -200px;
+    animation: float1 35s infinite linear;
+}
+
+.cloud1::before {
+    width: 100px;
+    height: 80px;
+    top: -40px;
+    left: 30px;
+}
+
+.cloud1::after {
+    width: 120px;
+    height: 70px;
+    top: -30px;
+    right: 30px;
+}
+
+/* Cloud 2 - Medium cloud */
+.cloud2 {
+    width: 150px;
+    height: 50px;
+    top: 35%;
+    left: -150px;
+    animation: float2 28s infinite linear 5s;
+}
+
+.cloud2::before {
+    width: 80px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud2::after {
+    width: 90px;
+    height: 55px;
+    top: -25px;
+    right: 20px;
+}
+
+/* Cloud 3 - Small cloud */
+.cloud3 {
+    width: 120px;
+    height: 40px;
+    top: 55%;
+    left: -120px;
+    animation: float3 40s infinite linear 10s;
+}
+
+.cloud3::before {
+    width: 60px;
+    height: 50px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud3::after {
+    width: 70px;
+    height: 45px;
+    top: -20px;
+    right: 15px;
+}
+
+/* Cloud 4 - Large high cloud */
+.cloud4 {
+    width: 180px;
+    height: 55px;
+    top: 10%;
+    left: -180px;
+    animation: float4 45s infinite linear 15s;
+}
+
+.cloud4::before {
+    width: 90px;
+    height: 70px;
+    top: -35px;
+    left: 25px;
+}
+
+.cloud4::after {
+    width: 110px;
+    height: 65px;
+    top: -28px;
+    right: 25px;
+}
+
+/* Cloud 5 - Medium low cloud */
+.cloud5 {
+    width: 160px;
+    height: 48px;
+    top: 70%;
+    left: -160px;
+    animation: float5 32s infinite linear 20s;
+}
+
+.cloud5::before {
+    width: 75px;
+    height: 58px;
+    top: -28px;
+    left: 22px;
+}
+
+.cloud5::after {
+    width: 95px;
+    height: 53px;
+    top: -23px;
+    right: 22px;
+}
+
+/* Cloud 6 - Extra small cloud */
+.cloud6 {
+    width: 100px;
+    height: 35px;
+    top: 45%;
+    left: -100px;
+    animation: float6 25s infinite linear 8s;
+}
+
+.cloud6::before {
+    width: 50px;
+    height: 45px;
+    top: -22px;
+    left: 12px;
+}
+
+.cloud6::after {
+    width: 60px;
+    height: 40px;
+    top: -18px;
+    right: 12px;
+}
+
+/* Cloud 7 - Another medium cloud */
+.cloud7 {
+    width: 140px;
+    height: 45px;
+    top: 25%;
+    left: -140px;
+    animation: float7 38s infinite linear 12s;
+}
+
+.cloud7::before {
+    width: 70px;
+    height: 55px;
+    top: -27px;
+    left: 18px;
+}
+
+.cloud7::after {
+    width: 85px;
+    height: 50px;
+    top: -22px;
+    right: 18px;
+}
+
+/* Animations */
+@keyframes float1 {
+    from { left: -200px; }
+    to { left: 110%; }
+}
+
+@keyframes float2 {
+    from { left: -150px; }
+    to { left: 110%; }
+}
+
+@keyframes float3 {
+    from { left: -120px; }
+    to { left: 110%; }
+}
+
+@keyframes float4 {
+    from { left: -180px; }
+    to { left: 110%; }
+}
+
+@keyframes float5 {
+    from { left: -160px; }
+    to { left: 110%; }
+}
+
+@keyframes float6 {
+    from { left: -100px; }
+    to { left: 110%; }
+}
+
+@keyframes float7 {
+    from { left: -140px; }
+    to { left: 110%; }
+}
+
+/* Content styling */
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #2C3E50;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.content p {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    color: #34495e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2.5rem;
+    }
     
-    <div class="content">
-        <h1>Welcome</h1>
-        <p>A journey beyond the clouds</p>
-    </div>
-</body>
-</html>
+    .content p {
+        font-size: 1.2rem;
+    }
+}
